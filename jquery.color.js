@@ -1,3 +1,35 @@
+
+Skip to content
+This repository
+
+    Explore
+    Gist
+    Blog
+    Help
+
+    @PacmanBits PacmanBits
+
+1
+0
+
+    300
+
+PacmanBits/jquery-color forked from jquery/jquery-color
+
+jquery-color/jquery.color.js
+@agcolom agcolom on Dec 22, 2014 Build: Remove dates from copyright notice
+
+9 contributors
+@gnarf
+@scottgonzalez
+@mikesherov
+@SineSwiper
+@jeresig
+@dfcreative
+@agcolom
+@qerub
+@bseth99
+664 lines (588 sloc) 16.251 kb
 /*!
  * jQuery Color Animations v@VERSION
  * https://github.com/jquery/jquery-color
@@ -209,6 +241,9 @@ function stringParse( string ) {
 	}
 
 	// named colors
+	if(typeof colors[string] === "undefined")
+		colors[string] = jQuery("<div>").css("color", string).css("color");
+	
 	return colors[ string ];
 }
 
