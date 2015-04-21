@@ -241,8 +241,15 @@ function stringParse( string ) {
 	}
 
 	// named colors
+	
+	// jQuery's css method uses jQuery Color, so we have to use vanilla Javascript for this
 	if(typeof colors[string] === "undefined")
-		colors[string] = jQuery("<div>").css("color", string).css("color");
+	{
+		var div = document.createElement("div");
+		div.style.color = string;
+		var style = window.getComputedStyle(div);
+		colors[string] = style.getPropertyValue("color");
+	}
 	
 	return colors[ string ];
 }
